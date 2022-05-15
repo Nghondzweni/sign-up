@@ -14,10 +14,10 @@ const slideOut = keyframes`
     100% { transform: translateX(0%); }
    
 `;
-export const StyledGrid = styledComponents("grid")`
+export const StyledGrid = styledComponents("div")`
     display: grid;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     grid-template-columns:1fr 2fr;
     .slide-in{
         animation:${slideIn} 1s;
@@ -61,7 +61,7 @@ display:flex;
 justify-content:center;
 align-items:start;
 flex-direction:column;
-
+height:100%;
 h3{
     margin-bottom:2em;
 }
@@ -69,21 +69,24 @@ h3{
 `;
 
 export const Form = styledComponents("form")`
+
 input[class="male"]:hover + svg {
-    filter: brightness(0.2) sepia(1) hue-rotate(180deg) saturate(5);
+    background:green;
 }
     padding:8em;
     .formItem{
         display:flex;
         width:100%;
-        margin:2em 0; 
+        margin:2em 0;
+        justify-content:space-between;
         label{
             width:30%;
-            text-align:start
+            text-align:start;
+            display:flex;
+            vertical-align:middle;
         }
         input{
             padding:1.2em;
-            flex-grow:1;
         }
         input[type="radio"] {
             position: absolute;
@@ -93,8 +96,11 @@ input[class="male"]:hover + svg {
         label svg {
             cursor: pointer;
         }
+        .input-group:{
+            display:flex;
+            flex-grow:1;
+        }
         
-  
         
     }
 `;

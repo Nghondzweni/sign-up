@@ -32,8 +32,9 @@ function App() {
               {formData.map(({ label, type, placeholder, options }) => (
                 <div className="formItem">
                   <label> {label}</label>
+                  <div className="input-group">
                   {options ? (
-                    options.map(({ name, value }) => (
+                    options.map(({ name, value,icon }) => (
                       <label htmlFor={name}>
                         <input
                           className={name}
@@ -41,13 +42,14 @@ function App() {
                           name={"gender"}
                           value={value}
                         />
-                        {<Icon name={name} />}
+                        {<Icon name={icon} />}
                         {name}
                       </label>
                     ))
                   ) : (
                     <input type={type} placeholder={placeholder} />
                   )}
+                  </div>
                 </div>
               ))}
             </Form>

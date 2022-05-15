@@ -13,10 +13,12 @@ export const formData = [
       {
         name: "male",
         value: "male",
+        icon:"male"
       },
       {
         name: "female",
         value: "female",
+        icon:"female"
       },
     ],
   },
@@ -42,5 +44,22 @@ export const formData = [
   {
     label: "Membership",
     type: "radio",
+    options: [
+      {
+        name: "Classic",
+        value: "classic",
+        icon:"card"
+      },
+      {
+        name: "Gold",
+        value: "gold",
+        icon:"card"
+      },
+      {
+        name: "Silver",
+        value: "silver",
+        icon:"card"
+      },
+    ],
   },
 ];
