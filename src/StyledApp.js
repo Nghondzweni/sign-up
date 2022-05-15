@@ -1,13 +1,30 @@
 import styledComponents from "styled-components";
 import face from "assets/images/face.svg";
 import arrow from "assets/images/arrow.svg";
+import { keyframes } from "styled-components";
 
+const slideIn = keyframes`
+0% { transform: translateX(-100%); }
+    100% { transform: translateX(0%); }
+   
+`;
+
+const slideOut = keyframes`
+    0%{ transform: translateX(-100%); }
+    100% { transform: translateX(0%); }
+   
+`;
 export const StyledGrid = styledComponents("grid")`
     display: grid;
     width: 100vw;
     height: 100vh;
     grid-template-columns:1fr 2fr;
-    
+    .slide-in{
+        animation:${slideIn} 1s;
+    }
+    .slide-out{
+        animation:${slideOut} 1s;
+    }
 `;
 
 export const Avatar = styledComponents("div")`
@@ -24,7 +41,7 @@ export const Profile = styledComponents("div")`
         justify-content:center;
         align-items:center;
         flex-direction:column;
-        
+        z-index:2;
         .btn{
             width:40px;
             height:40px;
@@ -43,72 +60,47 @@ background-color:#fc9100;
 display:flex;
 justify-content:center;
 align-items:start;
-
 flex-direction:column;
 
 h3{
     margin-bottom:2em;
 }
+
 `;
 
 export const Form = styledComponents("form")`
+input[class="male"]:hover + svg {
+    filter: brightness(0.2) sepia(1) hue-rotate(180deg) saturate(5);
+}
     padding:8em;
     .formItem{
         display:flex;
         width:100%;
         margin:2em 0; 
         label{
-            width:20%;
+            width:30%;
             text-align:start
         }
         input{
-            width:70%;
             padding:1.2em;
+            flex-grow:1;
+        }
+        input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        label svg {
+            cursor: pointer;
         }
         
+  
+        
     }
-
 `;
-
 
 export const DetailContainer = styledComponents("div")`
 
-#slider {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: blue;
-    transform: translateY(-100%);
-    -webkit-transform: translateY(-100%);
-}
+position:relative;
 
-.slide-in {
-    animation: slide-in 0.5s forwards;
-    -webkit-animation: slide-in 0.5s forwards;
-}
-
-.slide-out {
-    animation: slide-out 0.5s forwards;
-    -webkit-animation: slide-out 0.5s forwards;
-}
-    
-@keyframes slide-in {
-    100% { transform: translateY(0%); }
-}
-
-@-webkit-keyframes slide-in {
-    100% { -webkit-transform: translateY(0%); }
-}
-    
-@keyframes slide-out {
-    0% { transform: translateY(0%); }
-    100% { transform: translateY(-100%); }
-}
-
-@-webkit-keyframes slide-out {
-    0% { -webkit-transform: translateY(0%); }
-    100% { -webkit-transform: translateY(-100%); }
-}
-
-
-`
+`;

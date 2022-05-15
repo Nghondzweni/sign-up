@@ -1,5 +1,3 @@
-import logo from "./logo.svg";
-import "./App.css";
 import {
   Avatar,
   StyledGrid,
@@ -10,6 +8,7 @@ import {
 } from "./StyledApp";
 import { formData } from "formData";
 import { useState } from "react";
+import Icon from "assets/images/Icon";
 
 function App() {
   const [open, setOpen] = useState(true);
@@ -27,14 +26,28 @@ function App() {
           </p>
           <button className="btn" onClick={toggleOpen}></button>
         </Profile>
-        <DetailContainer id={"slider"}>
-          {" "}
+        <DetailContainer className={open ? "slide-in" : "slide-out"}>
           {open ? (
-            <Form className={open ? "slide-in" : "slide-out"}>
-              {formData.map(({ label, type }) => (
+            <Form>
+              {formData.map(({ label, type, placeholder, options }) => (
                 <div className="formItem">
                   <label> {label}</label>
-                  <input type={type}></input>
+                  {options ? (
+                    options.map(({ name, value }) => (
+                      <label htmlFor={name}>
+                        <input
+                          className={name}
+                          type={type}
+                          name={"gender"}
+                          value={value}
+                        />
+                        {<Icon name={name} />}
+                        {name}
+                      </label>
+                    ))
+                  ) : (
+                    <input type={type} placeholder={placeholder} />
+                  )}
                 </div>
               ))}
             </Form>

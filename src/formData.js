@@ -1,7 +1,7 @@
 export const formData = [
   {
     label: "Name",
-    
+
     type: "text",
     placeholder: "Kender Jener",
   },
@@ -9,6 +9,16 @@ export const formData = [
   {
     label: "Gender",
     type: "radio",
+    options: [
+      {
+        name: "male",
+        value: "male",
+      },
+      {
+        name: "female",
+        value: "female",
+      },
+    ],
   },
 
   {
@@ -26,12 +36,11 @@ export const formData = [
     type: "text",
   },
   {
-    label:"Customer ID",
-    type:"text",
-
-},
-{
-label: "Membership",
-type: "radio",
-},
+    label: "Customer ID",
+    type: "text",
+  },
+  {
+    label: "Membership",
+    type: "radio",
+  },
 ];
