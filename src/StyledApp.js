@@ -16,9 +16,12 @@ const slideOut = keyframes`
 `;
 export const StyledGrid = styledComponents("div")`
     display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns:1fr 2fr;
+    width: 85%;
+    height:85%;
+    margin: 5rem auto;
+    
+    grid-template-columns:0.8fr 1.2fr;
+    overflow-x:hidden;
     .slide-in{
         animation:${slideIn} 1s;
     }
@@ -33,6 +36,7 @@ export const Avatar = styledComponents("div")`
     border-radius:50%;
     background-image:url(${face});
     background-repeat: no-repeat;
+    object-fit:cover;
 `;
 
 export const Profile = styledComponents("div")`
@@ -62,6 +66,7 @@ justify-content:center;
 align-items:start;
 flex-direction:column;
 height:100%;
+width:100%;
 h3{
     margin-bottom:2em;
 }
@@ -70,43 +75,84 @@ h3{
 
 export const Form = styledComponents("form")`
 
-input[class="male"]:hover + svg {
-    background:green;
-}
-    padding:8em;
+    width: calc( 100% - 10em );
+    height: calc( 100% - 10em);
+    margin: auto;
+    background-color:#fff;
     .formItem{
+     &:first-child{
+         margin-top:0;
+     }
         display:flex;
         width:100%;
         margin:2em 0;
-        justify-content:space-between;
+        justify-content:center;
         label{
-            width:30%;
+            width:25%;
             text-align:start;
             display:flex;
-            vertical-align:middle;
+            margin:auto 0;
+            align-items:center;
+
         }
         input{
             padding:1.2em;
+            background-color:#f5f8f9;
+            border:none;
+            border-radius:5px;
+            &:focus{
+                color:#ffa956;
+                outline-color: #ffa956;
+                border-color: 1px solid #ffa956;
+            }
         }
+        
         input[type="radio"] {
             position: absolute;
             opacity: 0;
         }
-
         label svg {
             cursor: pointer;
+            margin-right:1em;
         }
-        .input-group:{
+        .input-group{
             display:flex;
-            flex-grow:1;
+            width:50%;
+            input{
+                width:100%;
+            }
+            .radio-label{
+                position:relative;
+                width:auto;
+                margin-right: 1em;
+            }
         }
         
         
     }
 `;
 
-export const DetailContainer = styledComponents("div")`
+export const ConfirmBtn = styledComponents.div`
+    padding-top:1em;
+    display:flex;
+    column-gap:25px;
+    justify-content:end;
+    margin-right:12.5%;
+    button{
+        width:125px;
+        height:50px;
+        border:none;
+        border-radius:5px;
+        :hover{
+            background-color:#55e5c5;
+            color:#fff;
+        }
+    }
+`;
 
+export const DetailContainer = styledComponents("div")` 
+background-color:#fff;
 position:relative;
+display:flex;
 
 `;
